@@ -1,0 +1,72 @@
+{
+  "extends": [
+    "airbnb",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "parserOptions": { //指定ESLint可以解析JSX语法
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // 自动读取已安装的react版本
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-no-bind": 0,
+    "jsx-a11y/label-has-for": 0,
+    "react/no-did-mount-set-state": 0,
+    "react/no-array-index-key": 0,
+    "react/jsx-indent": 0,
+    "react/no-find-dom-node": 0,
+    "react/static-property-placement": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/require-default-props": 0,
+    "semi": [
+      2,
+      "never"
+    ],
+    "global-require": 0,
+    "import/no-duplicates": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-webpack-loader-syntax": 0,
+    "import/prefer-default-export": 0,
+    "import/extensions": 0,
+    "max-len": 0,
+    "no-console": 0,
+    "no-continue": 0,
+    "no-labels": 0,
+    "no-restricted-syntax": 0,
+    "no-script-url": 0,
+    "no-unused-vars": 0,
+    "no-param-reassign": 0,
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-static-element-interactions": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react/destructuring-assignment": 0,
+    // "import/no-named-as-default": 0
+  }
+}

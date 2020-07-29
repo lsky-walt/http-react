@@ -1,0 +1,21 @@
+# node_modules
+node_modules
+
+# vscode debug
+.vscode
+
+# lock
+yarn.lock
+package-lock.json
+
+
+# build
+dist
+lib
+
+# npmrc & yarnrc
+.npmrc
+.yarnrc
+
+# error
+*error.log
