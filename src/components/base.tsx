@@ -67,7 +67,7 @@ class Index extends React.Component<HttpReact> {
   }
 
   setDebounceHttp() {
-    const { debounce = 1000 } = this.props
+    const { debounce = 100 } = this.props
     // @ts-ignore
     this.debounceHttp = de(this.http, debounce, true)
   }

@@ -4,10 +4,12 @@ import Base from './base'
 
 export interface GetHttpReact {
   url: string,
-  children?: React.ReactChild,
+  debounce?: number,
   params?: any, // url params
+  children?: React.ReactChild,
   onResponse?: (response: Axios.AxiosRequestConfig) => void,
   onError?: (error: Axios.AxiosError) => void,
+  onLoading?: (loading: boolean) => void,
 }
 
 class Index extends React.PureComponent<GetHttpReact> {
