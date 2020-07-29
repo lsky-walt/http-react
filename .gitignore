@@ -19,3 +19,7 @@ lib
 
 # error
 *error.log
+
+
+# config
+config.*

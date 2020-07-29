@@ -10,6 +10,13 @@
     "src",
     "index.d.ts"
   ],
+  "keywords": [
+    "react",
+    "http",
+    "axios",
+    "http-component",
+    "axios-component"
+  ],
   "scripts": {
     "start": "webpack-dev-server --config ./webpack/webpack.dev.config.js",
     "build": "webpack --mode production --config ./webpack/webpack.prod.config.js"

@@ -5,6 +5,8 @@ import { render } from 'react-dom'
 // eslint-disable-next-line import/no-named-as-default
 import HttpReact, { Post, HttpProvider } from '../src'
 
+import { http, post } from './config'
+
 interface SiteState {
   count: number
 }
@@ -31,8 +33,8 @@ class Index extends React.Component<{}, SiteState> {
           count++
         </button>
         <HttpReact
-          url="/npm/getProjects"
-          data={{ path: '/Users/hutao/Documents', count }}
+          url={http.url}
+          data={http.data}
           method="post"
           onResponse={(response) => { console.log('response: ', response) }}
           onError={(error) => console.log('error: ', error)}
@@ -45,8 +47,8 @@ class Index extends React.Component<{}, SiteState> {
           </div>
         </HttpReact>
         <Post
-          url="/path/changePath"
-          data={{ path: '/Users/hutao/Documents/github' }}
+          url={post.url}
+          data={post.data}
           onResponse={(response) => { console.log('post: ', response) }}
         >
           post http react

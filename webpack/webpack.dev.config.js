@@ -7,7 +7,7 @@ module.exports = {
   entry: {
     index: './site/index.tsx',
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -44,11 +44,8 @@ module.exports = {
     axios: 'window.axios',
   },
   devServer: {
-    // 这个本地开发环境运行时是基于哪个文件夹作为根目录
     contentBase: './dist',
-    // 当你有错误的时候在控制台打出
     stats: 'errors-only',
-    // 不启动压缩
     compress: false,
     host: 'localhost',
     port: 8888,

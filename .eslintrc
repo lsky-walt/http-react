@@ -14,7 +14,7 @@
     "react",
     "@typescript-eslint"
   ],
-  "parserOptions": { //指定ESLint可以解析JSX语法
+  "parserOptions": {
     "ecmaVersion": 2019,
     "sourceType": "module",
     "ecmaFeatures": {
@@ -23,7 +23,7 @@
   },
   "settings": {
     "react": {
-      "version": "detect" // 自动读取已安装的react版本
+      "version": "detect"
     }
   },
   "rules": {
