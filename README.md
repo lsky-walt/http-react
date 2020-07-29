@@ -99,7 +99,7 @@ class Index extends React.Component {
 
 ## 🍰 Components & PropTypes
 
-### <HttpReact />
+### HttpReact
 
 | attr | type | default value | desc |
 | --- | --- | --- | --- |
@@ -114,7 +114,7 @@ class Index extends React.Component {
 | onLoading | (isLoading: boolean) => void | null | onLoading |
 
 
-### <Get />
+### Get
 
 | attr | type | default value | desc |
 | --- | --- | --- | --- |
@@ -127,7 +127,7 @@ class Index extends React.Component {
 | onLoading | (isLoading: boolean) => void | null | onLoading |
 
 
-### <Post />
+### Post
 
 | attr | type | default value | desc |
 | --- | --- | --- | --- |
