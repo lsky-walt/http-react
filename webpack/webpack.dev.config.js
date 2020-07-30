@@ -48,7 +48,7 @@ module.exports = {
     stats: 'errors-only',
     compress: false,
     host: 'localhost',
-    port: 8888,
+    port: 9999,
     proxy: {
       '/': {
         target: 'http://localhost:5000',

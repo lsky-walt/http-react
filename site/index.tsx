@@ -3,9 +3,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 // eslint-disable-next-line import/no-named-as-default
-import HttpReact, { Post, HttpProvider } from '../src'
+import HttpReact, { Post, Get } from '../src'
 
-import { http, post } from './config'
+import { http, post, get } from './config'
 
 interface SiteState {
   count: number
@@ -34,7 +34,7 @@ class Index extends React.Component<{}, SiteState> {
         </button>
         <HttpReact
           url={http.url}
-          data={http.data}
+          data={{ ...http.data, count }}
           method="post"
           onResponse={(response) => { console.log('response: ', response) }}
           onError={(error) => console.log('error: ', error)}
@@ -53,6 +53,7 @@ class Index extends React.Component<{}, SiteState> {
         >
           post http react
         </Post>
+        <Get url={get.url} onResponse={(response) => { console.log('get: ', response) }} loading={<div>loading...</div>} />
       </div>
     )
   }

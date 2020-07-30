@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { isValidElement } from 'react'
 import * as Axios from 'axios'
 import pick from 'lodash.pick'
 import isequal from 'lodash.isequal'
@@ -12,6 +12,7 @@ export interface HttpReact {
   params?: any, // url params
   data?: any, // post, put data
   children?: React.ReactChild,
+  loading?: React.ReactNode | boolean,
   onResponse?: (response: Axios.AxiosRequestConfig) => void,
   onError?: (error: Axios.AxiosError) => void,
   onLoading?: (loading: boolean) => void,
@@ -27,9 +28,13 @@ interface HttpProps {
   onLoading?: (loading: boolean) => void,
 }
 
+interface HttpState {
+  show: boolean
+}
+
 const compareKey = ['method', 'url', 'params', 'data', 'debounce']
 
-class Index extends React.Component<HttpReact> {
+class Index extends React.Component<HttpReact, HttpState> {
   inLoading: () => void
 
   notLoading: () => void
@@ -41,12 +46,18 @@ class Index extends React.Component<HttpReact> {
     super(props)
     this.inLoading = this.loading.bind(this, true)
     this.notLoading = this.loading.bind(this, false)
+    this.renderChildren = this.renderChildren.bind(this)
+    this.check = this.check.bind(this)
 
     this.http = this.http.bind(this)
     this.setDebounceHttp = this.setDebounceHttp.bind(this)
 
     // init http
     this.setDebounceHttp()
+
+    this.state = {
+      show: false,
+    }
   }
 
   componentDidMount() {
@@ -67,7 +78,7 @@ class Index extends React.Component<HttpReact> {
   }
 
   setDebounceHttp() {
-    const { debounce = 100 } = this.props
+    const { debounce = 500 } = this.props
     // @ts-ignore
     this.debounceHttp = de(this.http, debounce, true)
   }
@@ -98,13 +109,36 @@ class Index extends React.Component<HttpReact> {
   loading(flag: boolean) {
     const { onLoading } = this.props
     if (typeof onLoading === 'function') onLoading(flag)
+
+    this.setState({
+      show: !flag,
+    })
+  }
+
+  // check children
+  check() {
+    const { children } = this.props
+    if (children) return children
+    return null
+  }
+
+  // inject is loading
+  renderChildren() {
+    const { loading } = this.props
+    const { show } = this.state
+    if (!loading) return this.check()
+
+    // is show
+    if (!show) {
+      if (isValidElement(loading)) return loading
+      return null
+    }
+
+    return this.check()
   }
 
   render() {
-    const { children } = this.props
-    return (
-    <>{children}</>
-    )
+    return this.renderChildren()
   }
 }
 

@@ -11,10 +11,11 @@
 
 
 <p align="center">
-  <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/npm-0.0.1-blue?style=flat-square">
+  <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/npm-0.0.2-blue?style=flat-square">
   <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/React-%3E=16.9.0-brightgreen?style=flat-square">
   <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/axios-%3E=0.19.0-brightgreen?style=flat-square">
   <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/size-21k-blue?style=flat-square">
+  <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/gzip-5.8k-important?style=flat-square">
 </p>
 
 
@@ -72,7 +73,7 @@ class Index extends React.Component {
         >
           post http react
         </Post>
-				<Get
+        <Get
           url="/test/test"
           params={{ param: 'abc' }}
           onResponse={(response) => { console.log('get: ', response) }}
@@ -82,13 +83,18 @@ class Index extends React.Component {
 
         <HttpProvider baseURL={"http://localhost:3000"}>
           <Post
-            url="/path/changePath"
-            data={{ path: '/Users/hutao/Documents/github' }}
+            url="/test/test"
+            data={{ path: '/test/test' }}
             onResponse={(response) => { console.log('post: ', response) }}
           >
             post http react
           </Post>
         </HttpProvider>
+        <Get 
+          url={get.url} 
+          onResponse={(response) => { console.log('get: ', response) }} 
+          loading={<div>loading...</div>} 
+        />
       </div>
     )
   }
@@ -109,6 +115,7 @@ class Index extends React.Component {
 | data | string \| plain object \| URLSearchParams | null | `data` is the data to be sent as the request body; Only applicable for request methods 'PUT', 'POST', and 'PATCH' |
 | params | plain object | null | `params` are the URL parameters to be sent with the request |
 | children | React.ReactChild | null | react node |
+| loading | React.ReactNode \| boolean | null | show in loading |
 | onResponse | (response) => void | null | onResponse |
 | onError | (error) => void | null | onError |
 | onLoading | (isLoading: boolean) => void | null | onLoading |
@@ -122,6 +129,7 @@ class Index extends React.Component {
 | debounce | number | 100 | debounce |
 | params | plain object | null | `params` are the URL parameters to be sent with the request |
 | children | React.ReactChild | null | react node |
+| loading | React.ReactNode \| boolean | null | show in loading |
 | onResponse | (response) => void | null | onResponse |
 | onError | (error) => void | null | onError |
 | onLoading | (isLoading: boolean) => void | null | onLoading |
@@ -136,6 +144,7 @@ class Index extends React.Component {
 | data | string \| plain object \| URLSearchParams | null | `data` is the data to be sent as the request body; Only applicable for request methods 'PUT', 'POST', and 'PATCH' |
 | params | plain object | null | `params` are the URL parameters to be sent with the request |
 | children | React.ReactChild | null | react node |
+| loading | React.ReactNode \| boolean | null | show in loading |
 | onResponse | (response) => void | null | onResponse |
 | onError | (error) => void | null | onError |
 | onLoading | (isLoading: boolean) => void | null | onLoading |

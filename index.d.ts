@@ -10,6 +10,7 @@ export interface HttpReactProps {
   params?: any, // url params
   data?: any, // post, put data
   children?: React.ReactChild,
+  loading?: React.ReactNode | boolean,
   onResponse?: (response: Axios.AxiosRequestConfig) => void,
   onError?: (error: Axios.AxiosError) => void,
   onLoading?: (loading: boolean) => void,
@@ -20,6 +21,7 @@ export interface GetHttpReact {
   debounce?: number,
   params?: any, // url params
   children?: React.ReactChild,
+  loading?: React.ReactNode | boolean,
   onResponse?: (response: Axios.AxiosRequestConfig) => void,
   onError?: (error: Axios.AxiosError) => void,
   onLoading?: (loading: boolean) => void,
@@ -31,6 +33,7 @@ export interface PostHttpReact {
   params?: any, // url params
   data?: any, // post, put data
   children?: React.ReactChild,
+  loading?: React.ReactNode | boolean,
   onResponse?: (response: Axios.AxiosRequestConfig) => void,
   onError?: (error: Axios.AxiosError) => void,
   onLoading?: (loading: boolean) => void,
