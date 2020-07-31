@@ -111,7 +111,7 @@ class Index extends React.Component {
 | --- | --- | --- | --- |
 | method | string | null | http method |
 | url | string | null | url |
-| debounce | number | 100 | debounce |
+| debounce | number | 500 | debounce |
 | data | string \| plain object \| URLSearchParams | null | `data` is the data to be sent as the request body; Only applicable for request methods 'PUT', 'POST', and 'PATCH' |
 | params | plain object | null | `params` are the URL parameters to be sent with the request |
 | children | React.ReactChild | null | react node |
@@ -126,7 +126,7 @@ class Index extends React.Component {
 | attr | type | default value | desc |
 | --- | --- | --- | --- |
 | url | string | null | url |
-| debounce | number | 100 | debounce |
+| debounce | number | 500 | debounce |
 | params | plain object | null | `params` are the URL parameters to be sent with the request |
 | children | React.ReactChild | null | react node |
 | loading | React.ReactNode \| boolean | null | show in loading |
@@ -140,7 +140,7 @@ class Index extends React.Component {
 | attr | type | default value | desc |
 | --- | --- | --- | --- |
 | url | string | null | url |
-| debounce | number | 100 | debounce |
+| debounce | number | 500 | debounce |
 | data | string \| plain object \| URLSearchParams | null | `data` is the data to be sent as the request body; Only applicable for request methods 'PUT', 'POST', and 'PATCH' |
 | params | plain object | null | `params` are the URL parameters to be sent with the request |
 | children | React.ReactChild | null | react node |

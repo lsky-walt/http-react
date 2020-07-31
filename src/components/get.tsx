@@ -14,11 +14,15 @@ export interface GetHttpReact {
 }
 
 class Index extends React.PureComponent<GetHttpReact> {
+  static displayName: string
+
   render() {
     return (
       <Base {...this.props} method="get" />
     )
   }
 }
+
+Index.displayName = 'GetHttpReact'
 
 export default Index

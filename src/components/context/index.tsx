@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 import axios, { AxiosRequestConfig, AxiosInstance } from 'axios'
 
 interface ContextType {
-  axios: null | AxiosInstance
+  axios: null | AxiosInstance,
 }
 
 export const HttpContext = createContext<ContextType>({
@@ -11,7 +11,7 @@ export const HttpContext = createContext<ContextType>({
 
 export interface RootAxios extends AxiosRequestConfig {
   children?: React.ReactChild,
-  instance?: AxiosInstance
+  instance?: AxiosInstance,
 }
 
 class HttpProvider extends React.Component<RootAxios> {

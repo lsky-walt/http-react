@@ -42,6 +42,12 @@ class Index extends React.Component<HttpReact, HttpState> {
   // @ts-ignore
   debounceHttp: (params: HttpProps) => void
 
+  static displayName: string
+
+  cancelToken: Axios.CancelTokenSource | null
+
+  isCancel: any
+
   constructor(props: HttpReact) {
     super(props)
     this.inLoading = this.loading.bind(this, true)
@@ -54,6 +60,10 @@ class Index extends React.Component<HttpReact, HttpState> {
 
     // init http
     this.setDebounceHttp()
+
+    this.cancelToken = null
+
+    this.isCancel = null
 
     this.state = {
       show: false,
@@ -73,8 +83,16 @@ class Index extends React.Component<HttpReact, HttpState> {
     }
 
     if (!isequal(pick(this.props, compareKey), pick(prevProps, compareKey))) {
+      // if (this.cancelToken) this.cancelToken.cancel('cancel before http request')
       this.debounceHttp(props)
     }
+  }
+
+  componentWillUnmount() {
+    if (this.cancelToken) this.cancelToken.cancel('component will unmount')
+    // clearable
+    this.debounceHttp = () => {}
+    this.cancelToken = null
   }
 
   setDebounceHttp() {
@@ -89,26 +107,34 @@ class Index extends React.Component<HttpReact, HttpState> {
       url, method = 'get', onResponse = () => {}, onError = () => {}, onLoading, ...options
     } = props
 
+    // cancelToken
+    this.cancelToken = Axios.default.CancelToken.source()
+
     // loading
     this.inLoading()
 
     axios({
       method,
       url,
+      cancelToken: this.cancelToken?.token,
       ...options,
     }).then((response: Axios.AxiosResponse) => {
-      this.notLoading()
       if (typeof onResponse === 'function') onResponse(response)
+      this.notLoading()
     })
       .catch((error: Axios.AxiosError) => {
-        this.notLoading()
+        this.isCancel = error
         if (typeof onError === 'function') onError(error)
+        this.notLoading()
       })
   }
 
   loading(flag: boolean) {
     const { onLoading } = this.props
     if (typeof onLoading === 'function') onLoading(flag)
+
+    // if this request is canceled, return
+    if (Axios.default.isCancel(this.isCancel)) return
 
     this.setState({
       show: !flag,
@@ -143,5 +169,7 @@ class Index extends React.Component<HttpReact, HttpState> {
 }
 
 Index.contextType = HttpContext
+
+Index.displayName = 'HttpReact'
 
 export default Index

@@ -1,6 +1,6 @@
 {
   "name": "@lsky/http-react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./lib/index.js",
   "repository": "https://github.com/lsky-walt/http-react.git",
   "author": "lsky_walt <lsky_walt@163.com>",
