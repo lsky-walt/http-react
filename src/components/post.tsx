@@ -15,11 +15,15 @@ export interface PostHttpReact {
 }
 
 class Index extends React.PureComponent<PostHttpReact> {
+  static displayName: string
+
   render() {
     return (
       <Base {...this.props} method="post" />
     )
   }
 }
+
+Index.displayName = 'PostHttpReact'
 
 export default Index

@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.0.3 - 2020-07-31
+
+- 🐞 : cancel request when component will unmount.
+
 ## v0.0.2 - 2020-07-30
 
 - new feat: support loading attribute

@@ -11,7 +11,7 @@
 
 
 <p align="center">
-  <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/npm-0.0.2-blue?style=flat-square">
+  <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/npm-0.0.3-blue?style=flat-square">
   <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/React-%3E=16.9.0-brightgreen?style=flat-square">
   <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/axios-%3E=0.19.0-brightgreen?style=flat-square">
   <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/size-21k-blue?style=flat-square">
@@ -111,7 +111,7 @@ class Index extends React.Component {
 | --- | --- | --- | --- |
 | method | string | null | http method |
 | url | string | null | url |
-| debounce | number | 100 | debounce |
+| debounce | number | 500 | debounce |
 | data | string \| plain object \| URLSearchParams | null | `data` is the data to be sent as the request body; Only applicable for request methods 'PUT', 'POST', and 'PATCH' |
 | params | plain object | null | `params` are the URL parameters to be sent with the request |
 | children | React.ReactChild | null | react node |
@@ -126,7 +126,7 @@ class Index extends React.Component {
 | attr | type | default value | desc |
 | --- | --- | --- | --- |
 | url | string | null | url |
-| debounce | number | 100 | debounce |
+| debounce | number | 500 | debounce |
 | params | plain object | null | `params` are the URL parameters to be sent with the request |
 | children | React.ReactChild | null | react node |
 | loading | React.ReactNode \| boolean | null | show in loading |
@@ -140,7 +140,7 @@ class Index extends React.Component {
 | attr | type | default value | desc |
 | --- | --- | --- | --- |
 | url | string | null | url |
-| debounce | number | 100 | debounce |
+| debounce | number | 500 | debounce |
 | data | string \| plain object \| URLSearchParams | null | `data` is the data to be sent as the request body; Only applicable for request methods 'PUT', 'POST', and 'PATCH' |
 | params | plain object | null | `params` are the URL parameters to be sent with the request |
 | children | React.ReactChild | null | react node |
