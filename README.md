@@ -11,7 +11,7 @@
 
 
 <p align="center">
-  <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/npm-0.0.2-blue?style=flat-square">
+  <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/npm-0.0.3-blue?style=flat-square">
   <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/React-%3E=16.9.0-brightgreen?style=flat-square">
   <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/axios-%3E=0.19.0-brightgreen?style=flat-square">
   <img href="https://github.com/lsky-walt/http-react" src="https://img.shields.io/badge/size-21k-blue?style=flat-square">
