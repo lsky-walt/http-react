@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.0.4 - 2020-12-11
+
+- ✨ : support websocket
+
 ## v0.0.3 - 2020-07-31
 
 - 🐞 : cancel request when component will unmount.

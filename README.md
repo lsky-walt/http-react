@@ -102,6 +102,33 @@ class Index extends React.Component {
 
 ```
 
+### ⚡️ WebSocket
+
+```javascript
+import React from 'react'
+import { WebSocket } from '@lsky/http-react'
+
+const sendMsg = (socket) => {
+  socket.send('message test')
+}
+const onMessage = (messageEvent) => {
+  console.log('message: ', messageEvent)
+}
+
+class Index extends React.PureComponent {
+  render() {
+    return (
+      <WebSocket
+        url="ws://localhost:4000"
+        onMessage={onMessage}
+      >
+        {({ socket }) => <div><button onClick={() => sendMsg(socket)}>send msg</button></div>}
+      </WebSocket>
+    )
+  }
+}
+```
+
 
 ## 🍰 Components & PropTypes
 
@@ -148,3 +175,17 @@ class Index extends React.Component {
 | onResponse | (response) => void | null | onResponse |
 | onError | (error) => void | null | onError |
 | onLoading | (isLoading: boolean) => void | null | onLoading |
+
+
+### WebSocket
+
+| attr | type | default value | desc |
+| --- | --- | --- | --- |
+| url | string | null | websocket url |
+| timeout | number | 1000 | restart time |
+| max | number | 10 | restart count |
+| children | React.ReactNode \| ({socket}) => React.ReactNode | null | react node |
+| onOpen | (event) => void | null | socket open callback |
+| onMessage | (messageEvent) => void | null | recieve message callback |
+| onClose | (closeEvent) => void | null | socket close callback |
+| onError | (event) => void | null | socket error callback |
